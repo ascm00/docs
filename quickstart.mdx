@@ -1,97 +1,79 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Development"
+description: "This section provides all the necessary information for developers working on the project. It includes instructions for setting up the development environment, understanding the project structure, contributing to the codebase, and deploying the application. Whether you're joining the team or maintaining the app in the future, this guide will help you get up to speed quickly and work effectively."
 ---
 
-## Setup your development
+## Getting started
 
-Learn how to update your docs locally and deploy them to the public.
+Before you begin, ensure you have:
 
-### Edit and preview
+- [<u>Yarn</u>](https://yarnpkg.com/getting-started/install) installed
+- [<u>Docker</u>](https://docs.docker.com/get-docker/) installed and running
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 
-    1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `docs.json` is): ``` mintlify dev ```
-    <Note>
-      If you’re currently using the legacy ```mint.json``` configuration file, please update the Mintlify CLI:
+## Running the project locally
 
+Follow these steps to set up and run your project locally:
 
-      ```npm i -g mintlify@latest```
-      And run the new upgrade command in your docs repository:
+**Step 1**: Install dependencies:
 
-      ```mintlify upgrade```
-      You should now be using the new ```docs.json``` configuration file. Feel free to delete the ```mint.json``` file from your repository.
-    </Note>
-  </Accordion>
-</AccordionGroup>
+<CodeGroup>
 
-### Deploy your changes
+```yarn
+yarn install
+```
 
-<AccordionGroup>
+</CodeGroup>
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+**Step 2**: Start the project:
 
-</AccordionGroup>
+```bash
+yarn run start
+```
 
-## Update your docs
+Congratulations, your project is now running locally\! Access the administration UI at [<u>http://localhost:1480</u>](http://localhost:1480).
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+It will also launch the following components:
 
-<CardGroup>
+| Container        | Port | Url                                                   |
+| :--------------- | :--- | :---------------------------------------------------- |
+| Contember Engine | 1481 | [<u>http://localhost:1481</u>](http://localhost:1481) |
+| Postgres         | 1482 | [<u>http://localhost:1482</u>](http://localhost:1482) |
+| S3               | 1483 | [<u>http://localhost:1483</u>](http://localhost:1483) |
+| MailPit          | 1484 | [<u>http://localhost:1484</u>](http://localhost:1484) |
+| Adminer          | 1485 | [<u>http://localhost:1485</u>](http://localhost:1485) |
+| S3 Dashboard     | 1486 | [<u>http://localhost:1486</u>](http://localhost:1486) |
 
-<Card title="Add Content With MDX" icon="file" href="/essentials/markdown">
-  Add content to your docs with MDX syntax.
-</Card>
+## Project overview
 
-<Card
-  title="Add Code Blocks"
-  icon="square-code"
-  href="/essentials/code"
->
-  Add code directly to your docs with syntax highlighting.
-</Card>
+The project consists of the following packages:
 
-<Card
-  title="Add Images"
-  icon="image"
-  href="/essentials/images"
->
-  Add images to your docs to make them more engaging.
-</Card>
+#### [@app/admin](https://github.com/ascm00/fuglio-marketplace/blob/main/admin)
 
-<Card
-  title="Add Custom Components"
-  icon="puzzle-piece"
-  href="/essentials/reusable-snippets"
->
-  Add templates to your docs to make them more reusable.
-</Card>
+- **Location:** `./admin`
+- **Description:** A React SPA that serves as the administration UI, built with Contember DataBinding for seamless integration with the Contember API.
+- **Sentry:** [<u>Sentry</u>](https://sentry.io/) is integrated into the project. To enable Sentry, set the `VITE_SENTRY_DSN` environment variable in the `.env.production` file.
 
-</CardGroup>
+#### [@app/api](https://github.com/ascm00/fuglio-marketplace/blob/main/api)
+
+- **Location:** `./api`
+- **Description:** Defines the data model and permissions for the Contember API.
+
+#### [@app/client](https://github.com/ascm00/fuglio-marketplace/blob/main/client)
+
+- **Location:** `./client`
+- **Description:** A type-safe GraphQL client for interacting with the Contember API, complete with generated types.
+- **Documentation:** [<u>Client Documentation</u>](https://github.com/ascm00/fuglio-marketplace/blob/main/client/README.md)
+
+## Deployment
+
+To deploy the application, follow the steps outlined in the deployment script or documentation. Make sure all environment variables are properly set and that the target environment meets the required system dependencies.
+
+**Step 1**: Make sure that you tested every new feauture properly on your local server.
+
+**Step 2**: Make sure that you are on the main branch.
+
+**Step 3**: Run command:
+
+```bash
+git push origin main:deploy/prod
+```
