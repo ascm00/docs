@@ -21,16 +21,25 @@
             ]
           },
           {
-            "group": "Development",
+            "group": "Buddy program",
             "pages": [
-              "development/markdown",
-              "development/code",
-              "development/images",
-              "development/settings",
-              "development/navigation",
-              "development/reusable-snippets"
             ]
-          }
+          },
+          {
+            "group": "Event organization",
+            "pages": [
+            ]
+          },
+          {
+            "group": "E-mailing",
+            "pages": [
+            ]
+          },
+          {
+            "group": "Administration",
+            "pages": [
+            ]
+          },
         ]
       },
       {
