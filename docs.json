@@ -11,7 +11,31 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "User guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "development"
+            ]
+          },
+          {
+            "group": "Development",
+            "pages": [
+              "development/markdown",
+              "development/code",
+              "development/images",
+              "development/settings",
+              "development/navigation",
+              "development/reusable-snippets"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Development guides",
         "groups": [
           {
             "group": "Get Started",
