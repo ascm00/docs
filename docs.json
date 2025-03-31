@@ -30,7 +30,7 @@
           {
             "group": "Event organization",
             "pages": [
-              "introduction",
+              "createEvent",
               "quickstart"
             ]
           },
