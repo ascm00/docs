@@ -24,24 +24,28 @@
             "group": "Buddy program",
             "pages": [
               "introduction",
+              "quickstart"
             ]
           },
           {
             "group": "Event organization",
             "pages": [
               "introduction",
+              "quickstart"
             ]
           },
           {
             "group": "E-mailing",
             "pages": [
               "introduction",
+              "quickstart"
             ]
           },
           {
             "group": "Administration",
             "pages": [
               "introduction",
+              "quickstart"
             ]
           },
         ]
