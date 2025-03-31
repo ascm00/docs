@@ -1,0 +1,112 @@
+---
+title: "Event management"
+description: "This is a guide for ESN members to manage events and registrations to the events."
+---
+
+**Step 1**: Click "Events" in the navigation and then on "Detail" of the desired one.
+
+## Edit event
+
+Only admininstrators and contact person of the event can edit it.
+
+If you're either admin or contact person, you will see a button "Edit event" in the top right corner.
+
+## Registrations management
+
+You can manage registrations on the event detail. You can filter them by User, allergies, dietary restrictions, age, payment status and Manually registered by (if the registration was made by someone else than the registered users).
+
+![image.png](/image.png)
+
+You can see the details of all registered users.
+
+### Send email to the registered users
+
+If you want to send an email to the registered users, you can click on "Copy emails" in the top right corner of the table and then paste it to your email client (gmail etc.). Unfortunately this feature doesn't work in Safari, it works in other browsers (Google Chrome etc.).
+
+### Payment
+
+Payments are made through a Comgate payment gate. The status of a payment is displayed in the colored box in the table.
+
+Explanation of what payment statuses mean:
+
+- **Cancelled** (they got to a payment gate and clicked "cancel payment")
+- **Pending** (they are either still in the process of the payment or they closed the window with the payment in the browser)
+- \*\*Paid \*\*(payment went through successfuly)
+- \*\*Not paid \*\*(the registration was made by ESN Member and the registered user hasn't paid yet)
+
+There is also Payment ID, by which the payment can be found in Comgate portal.
+
+To get further details of the payment, you can visit Comgate portal and log in with email and password of the tresaurer. To get the email and password for log in, contact the Treasurer of our ESN section.
+
+- Link to Comgate portal: https://portal.comgate.cz/cs/prihlaseni
+
+### Registration history
+
+It is also possible to display the history of registrations. ESN members can see all successful and also unsuccessful registrations to the event.
+
+There is a important column **accepted** in the table.
+
+The registration IS NOT accepted if the payment is either cancelled (they click on "cancel payment" in the payment gate) OR they didn't paid in the 30 minutes limit they have for the payment.
+
+This feature is implemented to prevent students to reserve their spot and not pay the registration and then not come. If they don't pay in 30 minutes, the registration is NOT accepted. You can recognize these unpaid registrations in 30 mins that they have status "pending" and accepted "NO"
+
+### Waiting list
+
+If the event capacity is full, it is still possible to register to the waiting list (if the waiting list number wasn't set to 0).
+
+**How to put user from a waiting list to a regular participants list?**
+
+The number of regular participants MUST NOT be higher than the capacity.
+
+**Step 1:** You must either delete a registration OR increasing the capacity in "Edit event" in the top corner. This is because the number of regular participants has to be equal to the capacity number
+
+**Step 2: **In the waiting list, click "Add user" and they will transfer to a regular participants list with a "Not paid" payment status.
+
+**Step 3: **Text them that their registration was approved and they should pay it. If they display the event detail, they will see "Pay" button. It will redirect them to the payment gate.
+
+### Edit and delete registration
+
+Contact person and admin can edit and delete registration.
+
+It is done by:
+
+- Clicking on the "Detail" of the registration
+- And then either "Edit registration" or "Delete registration"
+
+## Image
+
+### Using Markdown
+
+The [markdown syntax](https://www.markdownguide.org/basic-syntax/#images) lets you add images using the following code
+
+```md
+![title](/path/image.jpg)
+```
+
+Note that the image file size must be less than 5MB. Otherwise, we recommend hosting on a service like [Cloudinary](https://cloudinary.com/) or [S3](https://aws.amazon.com/s3/). You can then use that URL and embed.
+
+### Using Embeds
+
+To get more customizability with images, you can also use [embeds](/writing-content/embed) to add images
+
+```html
+<img height="200" src="/path/image.jpg" />
+```
+
+## Embeds and HTML elements
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4KzFe50RQkQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ width:"100%",borderRadius:"0.5rem" }} />
+
+<br />
+
+<Tip>
+  Mintlify supports [HTML tags in Markdown](https://www.markdownguide.org/basic-syntax/#html). This is helpful if you prefer HTML tags to Markdown syntax, and lets you create documentation with infinite flexibility.
+</Tip>
+
+### iFrames
+
+Loads another HTML page within the document. Most commonly used for embedding videos.
+
+```html
+<iframe src="https://www.youtube.com/embed/4KzFe50RQkQ"> </iframe>
+```
