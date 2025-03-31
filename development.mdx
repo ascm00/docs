@@ -1,107 +1,79 @@
 ---
-title: 'Development'
-description: 'Preview changes locally to update your docs'
+title: "Development"
+description: "This section provides all the necessary information for developers working on the project. It includes instructions for setting up the development environment, understanding the project structure, contributing to the codebase, and deploying the application. Whether you're joining the team or maintaining the app in the future, this guide will help you get up to speed quickly and work effectively."
 ---
 
-<Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding. <br />
-  Please upgrade to ```docs.json``` before proceeding and delete the legacy ```mint.json``` file.
-</Info>
+## Getting started
 
-Follow these steps to install and run Mintlify on your operating system:
+Before you begin, ensure you have:
 
-**Step 1**: Install Mintlify:
+- [<u>Yarn</u>](https://yarnpkg.com/getting-started/install) installed
+- [<u>Docker</u>](https://docs.docker.com/get-docker/) installed and running
+
+## Running the project locally
+
+Follow these steps to set up and run your project locally:
+
+**Step 1**: Install dependencies:
 
 <CodeGroup>
 
-  ```bash npm
-  npm i -g mintlify
-  ```
-
-```bash yarn
-yarn global add mintlify
+``` yarn
+yarn install
 ```
 
 </CodeGroup>
 
-**Step 2**: Navigate to the docs directory (where the `docs.json` file is located) and execute the following command:
+**Step 2**: Start the project:
 
 ```bash
-mintlify dev
+yarn run start
 ```
 
-A local preview of your documentation will be available at `http://localhost:3000`.
+Congratulations, your project is now running locally\! Access the administration UI at [<u>http://localhost:1480</u>](http://localhost:1480).
 
-### Custom Ports
+It will also launch the following components:
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. To run Mintlify on port 3333, for instance, use this command:
+| Container        | Port | Url                                                   |
+| :--------------- | :--- | :---------------------------------------------------- |
+| Contember Engine | 1481 | [<u>http://localhost:1481</u>](http://localhost:1481) |
+| Postgres         | 1482 | [<u>http://localhost:1482</u>](http://localhost:1482) |
+| S3               | 1483 | [<u>http://localhost:1483</u>](http://localhost:1483) |
+| MailPit          | 1484 | [<u>http://localhost:1484</u>](http://localhost:1484) |
+| Adminer          | 1485 | [<u>http://localhost:1485</u>](http://localhost:1485) |
+| S3 Dashboard     | 1486 | [<u>http://localhost:1486</u>](http://localhost:1486) |
 
-```bash
-mintlify dev --port 3333
-```
+## Project overview
 
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
+The project consists of the following packages:
 
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
+#### [@app/admin](https://github.com/ascm00/fuglio-marketplace/blob/main/admin)
 
-## Mintlify Versions
+- **Location:** `./admin`
+- **Description:** A React SPA that serves as the administration UI, built with Contember DataBinding for seamless integration with the Contember API.
+- **Sentry:** [<u>Sentry</u>](https://sentry.io/) is integrated into the project. To enable Sentry, set the `VITE_SENTRY_DSN` environment variable in the `.env.production` file.
 
-Please note that each CLI release is associated with a specific version of Mintlify. If your local website doesn't align with the production version, please update the CLI:
+#### [@app/api](https://github.com/ascm00/fuglio-marketplace/blob/main/api)
 
-<CodeGroup>
+- **Location:** `./api`
+- **Description:** Defines the data model and permissions for the Contember API.
 
-```bash npm
-npm i -g mintlify@latest
-```
+#### [@app/client](https://github.com/ascm00/fuglio-marketplace/blob/main/client)
 
-```bash yarn
-yarn global upgrade mintlify
-```
-
-</CodeGroup>
-
-## Validating Links
-
-The CLI can assist with validating reference links made in your documentation. To identify any broken links, use the following command:
-
-```bash
-mintlify broken-links
-```
+- **Location:** `./client`
+- **Description:** A type-safe GraphQL client for interacting with the Contember API, complete with generated types.
+- **Documentation:** [<u>Client Documentation</u>](https://github.com/ascm00/fuglio-marketplace/blob/main/client/README.md)
 
 ## Deployment
 
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
+To deploy the application, follow the steps outlined in the deployment script or documentation. Make sure all environment variables are properly set and that the target environment meets the required system dependencies.
 
-If the deployment is successful, you should see the following:
+**Step 1**: Make sure that you tested every new feauture properly on your local server.
 
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
+**Step 2**: Make sure that you are in the main branch.
 
-## Code Formatting
+**Step 3**: Run command:
 
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall mintlify: `npm install -g mintlify`
-  </Accordion>
-
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the \~/.mintlify folder. Afterwards, run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in the CLI version? [Check out the CLI changelog.](https://www.npmjs.com/package/mintlify?activeTab=versions)
+```bash
+git push origin main:deploy/prod
+```
