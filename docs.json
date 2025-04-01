@@ -16,15 +16,15 @@
           {
             "group": "Get Started",
             "pages": [
-              "introduction",
-              "quickstart"
+              "user-guides/create-event",
+              "user-guides/manage-event"
             ]
           },
           {
             "group": "Buddy program",
             "pages": [
-              "introduction",
-              "quickstart"
+              "user-guides/create-event",
+              "user-guides/manage-event"
             ]
           },
           {
@@ -37,15 +37,15 @@
           {
             "group": "E-mailing",
             "pages": [
-              "introduction",
-              "quickstart"
+              "user-guides/create-event",
+              "user-guides/manage-event"
             ]
           },
           {
             "group": "Administration",
             "pages": [
-              "introduction",
-              "quickstart"
+              "user-guides/create-event",
+              "user-guides/manage-event"
             ]
           }
         ]
